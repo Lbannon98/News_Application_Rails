@@ -5,36 +5,63 @@
       <!--      href="app/views/pages/index.html.erb"-->
     </div>
     <ul class="nav navbar-nav">
-      <li>
-        <% if current_user && current_user.admin %>
-          <%= link_to 'Posts', posts_path %>
-        <%end %>
-      </li>
+<!--      <li>-->
+        <%# if current_editor %>
+          <%#= link_to 'Posts', posts_path %>
+        <%#end %>
+<!--      </li>-->
     </ul>
+
     <ul class="nav navbar-nav navbar-right">
-      <li>
-        <% if !current_user %>
-          <%= link_to 'Sign up', new_user_registration_path %>
-        <%end %>
-      </li>
-      <li>
-        <% if !current_user %>
-          <%= link_to 'Sign in', new_user_session_path %>
-        <% else %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-        <% end %>
-      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item">
+            <% if !current_user %>
+            <%= link_to 'Sign up as a Reader', new_user_registration_path %>
+            <%end %>
+          </a>
+
+          <a class="dropdown-item">
+            <% if !current_user %>
+            <%= link_to 'Sign in as a Reader', new_user_session_path %>
+            <% else %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+            <%end %>
+          </a>
+
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Editor
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+        <a class="dropdown-item">
+          <% if !current_editor %>
+            <%= link_to 'Sign up as an Editor', new_editor_registration_path %>
+          <% end %>
+        </a>
+
+        <a class="dropdown-item">
+          <% if !current_editor %>
+            <%= link_to 'Sign in as an Editor', new_editor_session_path %>
+          <% else %>
+            <%= link_to 'Sign out', destroy_editor_session_path, method: :delete %>
+          <%end %>
+        </a>
+
+      </div>
+    </li>
+
     </ul>
   </div>
 </nav>
-
-<%# if current_user %>
-
-<%#= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-
-<%# else %>
-
-<%#= link_to 'Sign up', new_user_registration_path %>
-<%#= link_to 'Sign in', new_user_session_path %>
-
-<%# end %>
