@@ -2,5 +2,11 @@
 
 <%= render 'form', article: @article %>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<button type="button" class="btn btn-outline-primary" style="alignment: right">
+  <%= link_to 'Show', @article %>
+</button>
+
+<button type="button" class="btn btn-outline-primary" style="alignment: right">
+  <%= link_to 'Back', articles_path %>
+</button>
+

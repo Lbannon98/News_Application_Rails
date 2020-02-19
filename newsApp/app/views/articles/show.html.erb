@@ -1,19 +1,48 @@
-<p id="notice"><%= notice %></p>
+<!--<p>-->
+<!--  <strong>Headline:</strong>-->
+  <%#= @article.headline %>
+<!--</p>-->
 
-<p>
-  <strong>Headline:</strong>
-  <%= @article.headline %>
-</p>
+<!--<p>-->
+<!--  <strong>Body:</strong>-->
+  <%#= @article.body %>
+<!--</p>-->
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+<!--<p>-->
+<!--  <strong>Editor:</strong>-->
+  <%#= @article.editor.name %>
+<!--</p>-->
 
-<p>
-  <strong>Editor:</strong>
-  <%= @article.editor.name %>
-</p>
+<!--<%#= link_to 'Edit', edit_article_path(@article) %> |-->
+<%#= link_to 'Back', articles_path %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="container">
+
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title"><%= @article.headline %></h4>
+        <p class="card-text"><%= @article.body %></p>
+
+        <button type="button" class="btn btn-outline-primary" style="alignment: right">
+          <%= link_to 'Back', articles_path %>
+        </button>
+
+
+<!--        <button type="button" class="btn btn-outline-primary" style="alignment: right">-->
+          <%#= link_to 'Edit', edit_article_path(article) %>
+<!--        </button>-->
+
+<!--        <button type="button" class="btn btn-outline-primary" style="alignment: right">-->
+          <%#= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+<!--        </button>-->
+
+      </div>
+    </div>
+
+  <br>
+
+<!--  <button type="button" class="btn btn-outline-primary">-->
+    <%#= link_to 'New Article', new_article_path %>
+<!--  </button>-->
+
+</div>
