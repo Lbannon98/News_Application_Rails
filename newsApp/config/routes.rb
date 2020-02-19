@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   root to: 'pages#index'
   devise_for :editors
   devise_for :users
