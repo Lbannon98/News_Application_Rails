@@ -4,6 +4,8 @@ class Editor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :articles
+
   def name
     return self.email.split('@')[0].capitalize
   end
