@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    #@articles = Article.all
     @articles = current_editor.articles
   end
 
@@ -14,6 +15,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    #@article = Article.new
     @article = current_editor.articles.new
   end
 
