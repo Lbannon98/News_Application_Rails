@@ -10,7 +10,7 @@ class Editor < ApplicationRecord
 
   has_many :articles
 
-  def name
-    return self.email.split('@')[0].capitalize
-  end
+  #def name
+  #  return self.email.split('@')[0].capitalize
+  #end
 end

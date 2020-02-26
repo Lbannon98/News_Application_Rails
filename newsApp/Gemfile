@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#D Devise - Authentication
+# Devise - Authentication
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
 #Bootstrap
@@ -52,6 +52,8 @@ gem 'jquery-rails'
 gem 'httparty', '~> 0.17.3'
 
 gem 'news-api'
+
+gem 'profanityfilter', '~> 0.0.0'
 
 #gem 'web-console', '>= 3.3.0'
 

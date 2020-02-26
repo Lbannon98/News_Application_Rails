@@ -1,4 +1,4 @@
-<h1>My Articles</h1>
+<h1>Public Articles</h1>
 
 <div class="container">
 
@@ -9,19 +9,24 @@
       <p class="card-text"><%= article.body %></p>
 
       <br>
-<!--      <h5>Published by: <%#= article.editor.name %></h5>-->
 
-      <button type="button" class="btn btn-outline-primary">
-        <%= link_to 'Show', article %>
-      </button>
+      <% if current_user || current_editor%>
+          <button type="button" class="btn btn-outline-primary">
+            <%= link_to 'Show', article %>
+          </button>
+        <% end %>
 
-      <button type="button" class="btn btn-outline-primary" style="alignment: right">
-        <%= link_to 'Edit', edit_article_path(article) %>
-      </button>
+      <% if current_editor %>
 
-      <button type="button" class="btn btn-outline-primary" style="alignment: right">
-        <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </button>
+        <button type="button" class="btn btn-outline-primary" style="alignment: right">
+          <%= link_to 'Edit', edit_article_path(article) %>
+        </button>
+
+        <button type="button" class="btn btn-outline-primary" style="alignment: right">
+          <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </button>
+
+      <%end %>
 
     </div>
   </div>
@@ -29,9 +34,13 @@
 
   <br>
 
-  <button type="button" class="btn btn-outline-primary">
-    <%= link_to 'New Article', new_article_path %>
-  </button>
+  <% if current_editor %>
+
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to 'New Article', new_article_path %>
+    </button>
+
+  <%end %>
 
 </div>
 
