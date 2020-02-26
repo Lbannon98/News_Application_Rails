@@ -15,6 +15,7 @@ class ProfanityFilter
     end
 
     puts downcase
+    return downcase
 
   end
 

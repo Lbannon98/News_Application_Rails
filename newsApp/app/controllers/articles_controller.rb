@@ -1,16 +1,29 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  #attr_accessor :headlineInput, :bodyInput, :headlineResult, :bodyResult
+
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
+
+    #@headlineResult = ProfanityFilter.check(@headlineInput.to_s)
+    #@bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
+
     #@articles = current_editor.articles
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+
+    @headlineInput = params[:headline]
+    @bodyInput = params[:body]
+
+    @headlineResult = ProfanityFilter.check(@headlineInput.to_s)
+    @bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
+
   end
 
   # GET /articles/new
@@ -66,11 +79,11 @@ class ArticlesController < ApplicationController
   end
 
   def validate
-    @headlineInput = params[:search_string]
-    @bodyInput = params[:search_string]
+    @headlineInput = params[:headline]
+    @bodyInput = params[:body]
 
-    @headlineResult = ProfanityFilter.check(@headlineInput)
-    @bodyResult =  ProfanityFilter.check(@bodyInput)
+    @headlineResult = ProfanityFilter.check(@headlineInput.to_s)
+    @bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
 
   end
 

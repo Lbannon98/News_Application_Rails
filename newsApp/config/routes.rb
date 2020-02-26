@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
-
   post '/validate', :controller=> 'articles', :action=> 'validate'
 
   devise_for :editors, path: 'editors'

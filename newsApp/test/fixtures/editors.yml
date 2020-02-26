@@ -5,13 +5,19 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+    name: Lauren
     email: laurenbannon@gmail.com
+    age: 21
+    country: Ireland
     encrypted_password: 123456
 
 # column: value
 #
 two:
+    name: Anne
     email: annebannon@gmail.com
+    age: 56
+    country: Ireland
     encrypted_password: 123456
 
 # column: value
