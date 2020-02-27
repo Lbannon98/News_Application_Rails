@@ -5,16 +5,49 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+
+    @articles.each do |article|
+
+      @headline = article.headline
+      @body = article.body
+
+      @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
+      @cleansedBody = ProfanityFilter.check(@body.to_s)
+
+      article.headline = @cleansedHeadline
+      article.body = @cleansedBody
+
+    end
+
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+
+    @article = Article.find(params[:id])
+
+    @headline = @article.headline
+    @body = @article.body
+
+    @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
+    @cleansedBody = ProfanityFilter.check(@body.to_s)
+
+    @article.headline = @cleansedHeadline
+    @article.body = @cleansedBody
+
   end
 
   # GET /articles/new
   def new
     @article = Article.new
+
+    @headlineInput = params[:headline]
+    @bodyInput = params[:body]
+
+    @headlineResult = ProfanityFilter.check(@headlineInput.to_s)
+    @bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
+
   end
 
   # GET /articles/1/edit
@@ -24,6 +57,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+
     @article = Article.new(article_params)
     @article.editor = current_editor
 
@@ -72,4 +106,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:headline, :body)
     end
+
 end

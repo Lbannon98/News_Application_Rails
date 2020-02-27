@@ -1,8 +1,7 @@
-
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h2 class="display-4">Welcome to NewsWave</h2>
-    <p class="lead">For the most up-to-date news, all in the one place!</p>
+    <p class="lead">For the most up-to-date news, all in the one place! Get news from multiple sources as well as contribute by making an Editor account!</p>
   </div>
 </div>
 
@@ -10,51 +9,12 @@
 
   <div class="row">
 
-    <%= render "layouts/cardview" %>
+    <%= render "newsApi/indexNewsApiHeadlines" %>
 
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
+    <%= render "newsApi/indexNewsApiEverything" %>
 
   </div>
 
-  <div class="row">
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-  </div>
-
-  <div class="row">
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-  </div>
-
-  <div class="row">
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-  </div>
-
-  <div class="row">
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-    <%= render "layouts/cardview" %>
-
-  </div>
 </div>
+
+<%= render 'layouts/footer' %>

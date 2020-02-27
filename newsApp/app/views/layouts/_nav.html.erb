@@ -9,8 +9,19 @@
     </div>
     <ul class="nav navbar-nav">
       <li>
-        <% if current_editor %>
-          <%= link_to 'My Articles', articles_path %>
+
+        <% if current_editor ||  current_user%>
+          <%= link_to 'Articles', articles_path %>
+        <%end %>
+
+        <%# if current_user %>
+          <%#= link_to 'Articles', articles_path %>
+        <%#end %>
+
+      </li>
+      <li>
+        <% if current_editor ||  current_user%>
+          <%= link_to 'Profile', articles_path %>
         <%end %>
       </li>
     </ul>
