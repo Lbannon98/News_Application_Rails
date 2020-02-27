@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
-  post '/validate', :controller=> 'articles', :action=> 'validate'
-
   devise_for :editors, path: 'editors', :controllers => { registrations: 'devise/registrations' }
   devise_for :users, path: 'users', :controllers => { registrations: 'devise/registrations' }
 

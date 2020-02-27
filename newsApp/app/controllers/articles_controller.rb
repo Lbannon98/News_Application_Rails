@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  attr_accessor :headlineInput, :bodyInput, :headlineResult, :bodyResult
-
   # GET /articles
   # GET /articles.json
   def index
