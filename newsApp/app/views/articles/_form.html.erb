@@ -1,13 +1,13 @@
-<%#= bootstrap_form_with(model: @article, local: true) do |f| %>
-  <%#= f.text_field :headline %>
-  <%#= f.text_area :body  %>
-  <%#= f.submit %>
-<%# end %>
-
-<%= bootstrap_form_tag url: '/validate' do |f| %>
+<%= bootstrap_form_with(model: @article, local: true) do |f| %>
   <%= f.text_field :headline %>
   <%= f.text_area :body  %>
   <%= f.submit %>
 <% end %>
+
+<%#= bootstrap_form_tag url: '/validate' do |f| %>
+  <%#= f.text_field :headline %>
+  <%#= f.text_area :body  %>
+  <%#= f.submit %>
+<%# end %>
 
 <br>

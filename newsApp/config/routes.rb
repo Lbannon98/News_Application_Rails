@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   post '/validate', :controller=> 'articles', :action=> 'validate'
 
-  devise_for :editors, path: 'editors'
-  devise_for :users, path: 'users'
+  devise_for :editors, path: 'editors', :controllers => { registrations: 'devise/registrations' }
+  devise_for :users, path: 'users', :controllers => { registrations: 'devise/registrations' }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

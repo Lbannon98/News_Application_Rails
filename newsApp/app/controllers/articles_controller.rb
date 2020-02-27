@@ -1,22 +1,48 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  #attr_accessor :headlineInput, :bodyInput, :headlineResult, :bodyResult
+  attr_accessor :headlineInput, :bodyInput, :headlineResult, :bodyResult
 
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
 
-    #@headlineResult = ProfanityFilter.check(@headlineInput.to_s)
-    #@bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
+    @articles.each do |article|
 
-    #@articles = current_editor.articles
+      @headline = article.headline
+      @body = article.body
+
+      @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
+      @cleansedBody = ProfanityFilter.check(@body.to_s)
+
+      article.headline = @cleansedHeadline
+      article.body = @cleansedBody
+
+    end
+
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+
+    @article = Article.find(params[:id])
+
+    @headline = @article.headline
+    @body = @article.body
+
+    @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
+    @cleansedBody = ProfanityFilter.check(@body.to_s)
+
+    @article.headline = @cleansedHeadline
+    @article.body = @cleansedBody
+
+  end
+
+  # GET /articles/new
+  def new
+    @article = Article.new
 
     @headlineInput = params[:headline]
     @bodyInput = params[:body]
@@ -26,12 +52,6 @@ class ArticlesController < ApplicationController
 
   end
 
-  # GET /articles/new
-  def new
-    @article = Article.new
-    #@article = current_editor.articles.new
-  end
-
   # GET /articles/1/edit
   def edit
   end
@@ -39,8 +59,8 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+
     @article = Article.new(article_params)
-    #@article = current_editor.articles.new(article_params)
     @article.editor = current_editor
 
     respond_to do |format|
@@ -78,15 +98,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def validate
-    @headlineInput = params[:headline]
-    @bodyInput = params[:body]
-
-    @headlineResult = ProfanityFilter.check(@headlineInput.to_s)
-    @bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -97,4 +108,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:headline, :body)
     end
+
 end

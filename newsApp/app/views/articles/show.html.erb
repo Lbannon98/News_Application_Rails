@@ -1,19 +1,10 @@
-<h1>Validated</h1>
-<%= @headlineInput %>
-</p>
-<%= @headlineResult %>
-</p>
-<%= @bodyInput%>
-</p>
-<%= @bodyResult %>
-
-
 <div class="container">
 
     <div class="card">
       <div class="card-block">
-        <h4 class="card-title"> You said: <%= @headlineResult%></h4>
-        <p class="card-text"> You said: <%= @bodyResult %></p>
+        <h4 class="card-title"><%= @article.headline %></h4>
+        <p class="card-text"><%= @article.body %></p>
+        <h5 class="card-text">Published By: <%= @article.editor.email %></h5>
 
         <button type="button" class="btn btn-outline-primary" style="alignment: right">
           <%= link_to 'Back', articles_path %>

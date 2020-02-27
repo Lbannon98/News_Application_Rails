@@ -2,11 +2,26 @@
 
 <div class="container">
 
+  <%#= search_form_for @search do |f| %>
+<!--    <div class="field">-->
+      <%#= f.label :name_cont, "Search: Name Contains"%>
+      <%#= f.text_field :name_cont, class: "form-control" %>
+<!--    </div>-->
+<!--    <div class="actions">-->
+      <%#= f.submit "Search", class: "btn btn-success"%>
+<!--    </div>-->
+  <%# end %>
+
   <% @articles.each do |article| %>
   <div class="card">
     <div class="card-block">
-      <h4 class="card-title"><%= article.headline %></h4>
-      <p class="card-text"><%= article.body %></p>
+      <h4 class="card-title"> <%= article.headline%> </h4>
+      <%#= article.headline%>
+      <%#= @cleansedHeadline %>
+      <p class="card-text"> <%= article.body%> </p>
+      <%#= @cleansedBody %>
+      <%#= article.body%>
+      <h5 class="card-text">Published By: <%= article.editor.email %></h5>
 
       <br>
 

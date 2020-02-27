@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'ProfanityFilter'
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +17,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create article" do
-    assert_difference('Article.count') do
+    assert_difference('Article.count', 1) do
       post articles_url, params: { article: { body: @article.body, headline: @article.headline, editor_id: @article.editor_id } }
     end
 
