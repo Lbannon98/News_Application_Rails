@@ -6,6 +6,10 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
 
+    if params[:search]
+      @articles = Article.search(params[:search])
+    end
+
     @articles.each do |article|
 
       @headline = article.headline
