@@ -30,15 +30,23 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
+    #@comment = @article.comments
+    #@comment = @article.comments.find(params[:comment_id])
 
     @headline = @article.headline
     @body = @article.body
 
+    #@content = @comment.content
+
     @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
     @cleansedBody = ProfanityFilter.check(@body.to_s)
 
+    #@cleansedContent = ProfanityFilter.check(@content.to_s)
+
     @article.headline = @cleansedHeadline
     @article.body = @cleansedBody
+
+    #@comment.content = @cleansedContent
 
   end
 
