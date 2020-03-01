@@ -9,9 +9,23 @@
 
   <div class="row">
 
-    <%= render "newsApi/indexNewsApiHeadlines" %>
+    <div class="col-6 col-md-4"></div>
 
-    <%= render "newsApi/indexNewsApiEverything" %>
+    <div class="col-6 col-md-4">
+      <%= render "apiCalls/indexWeatherApi" %>
+    </div>
+
+    <div class="col-6 col-md-4"></div>
+
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="row">
+
+    <%= render "apiCalls/indexNewsApiHeadlines" %>
 
   </div>
 
