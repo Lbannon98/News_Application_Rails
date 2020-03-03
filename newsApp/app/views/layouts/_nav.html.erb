@@ -3,6 +3,7 @@
 
     <div class="navbar-header" style="padding-top: 12px; height: 12px;">
       <a class="navbar-brand">
+        <%= image_tag "favicon.png", size: "23x23"%>
         <%= link_to 'NewsWave', root_path , {:style=>'color: #FFFFFF; font-weight: bold;'} %>
       </a>
 
@@ -13,10 +14,6 @@
         <% if current_editor ||  current_user%>
           <%= link_to 'Articles', articles_path %>
         <%end %>
-
-        <%# if current_user %>
-          <%#= link_to 'Articles', articles_path %>
-        <%#end %>
 
       </li>
       <li>

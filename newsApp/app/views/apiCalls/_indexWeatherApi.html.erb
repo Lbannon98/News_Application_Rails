@@ -1,19 +1,18 @@
-<div class="col-md-4">
-  <div class="card" style="width: 360px; height: 200px; padding: 20px;">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-6 col-md-4"></div>
+<div class="container">
 
-        <div class="col-6 col-md-4">
-          <img class="card-img-top" style="width: 100px; height: 100px;"  src="/newsApp/app/assets/images/weather%20icon.jpg" >
-        </div>
+  <div class="row">
+
+    <div class="card" style="width: 10rem; height: 270px; padding: 20px;">
+
+      <div class="card-body" style="margin: auto; padding-left: 25px; padding-right: 25px; padding-top: 40px;">
+
+        <%= image_tag "weatherIcon.jpg", size: "80x80"%>
+        <p style="font-family: 'Verdana'; alignment: center;"> Weather </p>
+        <h5 class="card-title" style="font-family: 'Verdana';"> <%= @weather %>°C </h5>
 
       </div>
 
-      <p></p>
-
-      <h5 class="card-title">Temperature: <%= @weather %>°C </h5>
-
     </div>
   </div>
+
 </div>
