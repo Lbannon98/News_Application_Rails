@@ -10,19 +10,6 @@ class ArticlesController < ApplicationController
       @articles = Article.search(params[:search])
     end
 
-    @articles.each do |article|
-
-      @headline = article.headline
-      @body = article.body
-
-      @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
-      @cleansedBody = ProfanityFilter.check(@body.to_s)
-
-      article.headline = @cleansedHeadline
-      article.body = @cleansedBody
-
-    end
-
   end
 
   # GET /articles/1
@@ -30,35 +17,12 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
-    #@comment = @article.comments
-    #@comment = @article.comments.find(params[:comment_id])
-
-    @headline = @article.headline
-    @body = @article.body
-
-    #@content = @comment.content
-
-    @cleansedHeadline = ProfanityFilter.check(@headline.to_s)
-    @cleansedBody = ProfanityFilter.check(@body.to_s)
-
-    #@cleansedContent = ProfanityFilter.check(@content.to_s)
-
-    @article.headline = @cleansedHeadline
-    @article.body = @cleansedBody
-
-    #@comment.content = @cleansedContent
 
   end
 
   # GET /articles/new
   def new
     @article = Article.new
-
-    @headlineInput = params[:headline]
-    @bodyInput = params[:body]
-
-    @headlineResult = ProfanityFilter.check(@headlineInput.to_s)
-    @bodyResult =  ProfanityFilter.check(@bodyInput.to_s)
 
   end
 

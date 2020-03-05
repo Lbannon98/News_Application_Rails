@@ -21,7 +21,7 @@ class PagesController < ApplicationController
   def weatherApi
 
     options = { units: "metric", APPID: "e70cadf7fe0bb13f9ba7f1f1ead47aff" }
-    request = OpenWeather::Current.city("Berlin,DE", options)
+    request = OpenWeather::Current.city("Dublin, IE", options)
 
     temp = request['main']['temp']
 

@@ -1,10 +1,10 @@
-<h1>Comments from Article: <%= @article.headline %></h1>
+<h1>Comments from Article: <%= ProfanityFilter.check(@article.headline) %></h1>
 
 <% for comment in @comments %>
   <div class="card">
     <div class="card-block">
       <h5 class="card-text"> Commented By: <%= comment.user.email %> </h5>
-      <p class="card-text"> <%= comment.content %></p>
+      <p class="card-text"> <%= ProfanityFilter.check(comment.content) %></p>
 
       <br>
 

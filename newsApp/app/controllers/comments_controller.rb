@@ -7,17 +7,6 @@ class CommentsController < ApplicationController
     @comments = @article.comments
     @user = current_user
 
-
-    @comments.each do |comment|
-
-      @content = comment.content
-
-      @cleansedContent = ProfanityFilter.check(@content.to_s)
-
-      comment.content = @cleansedContent
-
-    end
-
   end
 
   # GET /articles/1/comments/2
@@ -26,13 +15,6 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
 
-    @content = @comment.content
-
-    @cleansedContent = ProfanityFilter.check(@content.to_s)
-
-    @comment.content = @cleansedContent
-
-
   end
 
   # GET /articles/1/comments/new
@@ -40,10 +22,6 @@ class CommentsController < ApplicationController
 
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build
-
-    @contentInput = params[:content]
-
-    @contentResult = ProfanityFilter.check(@contentInput.to_s)
 
   end
 
