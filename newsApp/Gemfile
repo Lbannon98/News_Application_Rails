@@ -53,6 +53,9 @@ gem 'httparty', '~> 0.17.3'
 
 gem 'news-api'
 
+#Open-Weather
+gem 'open-weather'
+
 gem 'profanityfilter', '~> 0.0.0'
 
 #gem 'web-console', '>= 3.3.0'
