@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_154105) do
+ActiveRecord::Schema.define(version: 2020_03_07_203705) do
 
   create_table "articles", force: :cascade do |t|
     t.string "headline"
@@ -40,10 +40,15 @@ ActiveRecord::Schema.define(version: 2020_02_29_154105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.decimal "age"
+    t.integer "age"
     t.string "country"
     t.index ["email"], name: "index_editors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_editors_on_reset_password_token", unique: true
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_02_29_154105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.decimal "age"
+    t.integer "age"
     t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
