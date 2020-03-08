@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_03_07_203705) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.decimal "age"
+    t.integer "age"
     t.string "country"
     t.index ["email"], name: "index_editors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_editors_on_reset_password_token", unique: true
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_07_203705) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.decimal "age"
+    t.integer "age"
     t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

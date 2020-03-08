@@ -4,33 +4,28 @@
 
     <div class="col-sm-12 col-md-4 col-lg-2"></div>
 
-    <div class="col-sm-12 col-md-4 col-lg-2">
 
       <h1>Profile</h1>
 
-      <p></p>
+      <br/>
+      <br/>
 
-      <div class="card" style="width: 45rem; height: 600px; padding: 20px;">
+      <div class="container" style="text-align: center;">
 
-        <div class="card-body" style="margin: auto; padding-left: 30px; padding-right: 30px; padding-top: 20px; width: 20rem;">
+        <%= image_tag "user_icon.png", size: "220x220"%>
 
-          <%= image_tag "user_icon.png", size: "220x220"%>
+        <p></p>
 
-          <p></p>
+        <h3 class="card-text"> Name: <%= @user.name %> </h3>
 
-          <h3 class="card-text"> Name: <%= @user.name %> </h3>
+        <h3 class="card-text"> Email: <%= @user.email %> </h3>
 
-          <h3 class="card-text"> Email: <%= @user.email %> </h3>
+        <h3 class="card-text"> Age: <%= @user.age %> </h3>
 
-          <h3 class="card-text"> Age: <%= @user.age %> </h3>
-
-          <h3 class="card-text"> Country: <%= @user.country%></h3>
-
-        </div>
+        <h3 class="card-text"> Country: <%= @user.country%></h3>
 
       </div>
 
-    </div>
 
     <div class="col-sm-12 col-md-4 col-lg-2"></div>
 
