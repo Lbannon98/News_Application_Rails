@@ -2,6 +2,27 @@
 
   <div class="row">
 
+    <div class="col-sm-12 col-md-6 col-lg-2" style="text-align: left;">
+      <% if @breadcrumbs && @breadcrumbs.any? %>
+
+        <h4>Last Visited</h4>
+        <ul>
+          <% @breadcrumbs[0..1].each do |breadcrumb| %>
+          <li><%= link_to breadcrumb, breadcrumb %></li>
+          <% end %>
+        </ul>
+
+      <% end %>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-2"></div>
+
+  </div>
+
+  <br/>
+
+  <div class="row">
+
     <div class="col-sm-12 col-md-3 col-lg-2">
       <%= render "apiCalls/indexWeatherApi" %>
     </div>

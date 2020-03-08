@@ -3,6 +3,7 @@ require 'open-uri'
 require 'open_weather'
 
 class PagesController < ApplicationController
+  before_action :set_breadcrumbs
 
   def index
 
@@ -26,5 +27,30 @@ class PagesController < ApplicationController
     temp = request['main']['temp']
 
   end
+
+  def reset
+    reset_session
+    @breadcrumbs = nil
+  end
+
+  private
+  def set_breadcrumbs
+    if session[:breadcrumbs]
+      @breadcrumbs = session[:breadcrumbs]
+    else
+      @breadcrumbs = Array.new
+    end
+
+    @breadcrumbs.push(request.base_url)
+
+    if @breadcrumbs.count > 1
+      @breadcrumbs.shift
+    end
+
+    session[:breadcrumbs] = @breadcrumbs
+
+  end
+
+
 
 end
