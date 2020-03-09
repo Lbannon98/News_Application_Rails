@@ -10,6 +10,13 @@ class PagesController < ApplicationController
     @topHeadlines = newsApiHeadlines()
     @weather = weatherApi()
 
+    set_cookie()
+    show_cookie()
+
+    if !current_user && !current_editor
+      reset()
+    end
+
   end
 
   def newsApiHeadlines
@@ -29,8 +36,26 @@ class PagesController < ApplicationController
   end
 
   def reset
-    reset_session
-    @breadcrumbs = nil
+      reset_session
+      @breadcrumbs = nil
+  end
+
+  def set_cookie
+    if current_user
+      cookies[:user_name] = current_user.name
+    elsif current_editor
+      cookies[:user_name] = current_editor.name
+    else
+      cookies[:user_name] = nil
+    end
+  end
+
+  def show_cookie
+    @user_name = cookies[:user_name]
+  end
+
+  def delete_cookie
+    cookie.delete :user_name
   end
 
   private
@@ -50,7 +75,5 @@ class PagesController < ApplicationController
     session[:breadcrumbs] = @breadcrumbs
 
   end
-
-
 
 end
