@@ -1,10 +1,15 @@
+require 'Subject.rb'
+require 'observer'
+
 class CommentsController < ApplicationController
+  include Observable
 
   # GET /articles/1/comments
   def index
 
     @article = Article.find(params[:article_id])
     @comments = @article.comments
+
     @user = current_user
 
   end
@@ -14,6 +19,8 @@ class CommentsController < ApplicationController
 
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
+
+    #@article.add_observer(@comment)
 
   end
 
@@ -55,6 +62,9 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = Comment.find(params[:id])
 
+    changed
+    notify_observers(self)
+
     if @comment.update(comment_params)
       # Save the review successfully
       redirect_to article_comment_url(@article, @comment)
@@ -83,4 +93,10 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :user)
   end
 
+end
+
+class Publisher
+  def update(changed_comment)
+    puts "You're comment has been updated to #{changed_comment.content}"
+  end
 end
