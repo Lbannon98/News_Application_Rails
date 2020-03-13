@@ -2,19 +2,15 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <style>
-
-  </style>
 </head>
 
 <body>
 
-  <h4> You commented on Article, <%= @editor %> </h4>
+  <h4> Someone has commented on you Article, <%= @editor %> </h4>
 
-<%#= yield %>
+  <p>
+    <%= @user %>  has commented on your article! It says: "<%= @content %>". Go check it out! <br>
+  </p>
+
 </body>
 </html>
-
-<!--<p>-->
-  <!--    <%#= @user.name %> has commented on your article! It says: "<%#= @comment %>". Go check it out!<br>-->
-<!--</p>-->

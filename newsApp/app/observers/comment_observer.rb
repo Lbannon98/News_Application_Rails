@@ -2,12 +2,12 @@ class CommentObserver < ActiveRecord::Observer
 
   def after_create(comment)
 
-    CommentMailer.new_comment_email(comment.user.email).deliver_now
+    @user = comment.user.email
+    @editor = comment.article.editor.email
+    @content = comment.content
 
-    #CommentMailer.new_comment_email(comment.user.email).deliver_now
+    CommentMailer.new_comment_email(@editor, @user, @content).deliver_now
 
   end
 
 end
-
-#@editor, @comment.user, @content

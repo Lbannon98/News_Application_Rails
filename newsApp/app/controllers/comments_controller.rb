@@ -1,7 +1,4 @@
-require 'observer'
-
 class CommentsController < ApplicationController
-  include Observable
 
   # GET /articles/1/comments
   def index
@@ -18,8 +15,6 @@ class CommentsController < ApplicationController
 
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-
-    #@article.add_observer(@comment)
 
   end
 
@@ -42,9 +37,6 @@ class CommentsController < ApplicationController
     @content = @comment.content
 
     if @comment.save
-
-      #CommentMailer.new_comment_email(@editor, @comment.user, @content).deliver_now
-
       # Save the review successfully
       redirect_to article_comments_url(@article, @comment)
     else
@@ -97,10 +89,4 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content, :user)
   end
 
-end
-
-class Publisher
-  def update(changed_comment)
-    puts "You're comment has been updated to #{changed_comment.content}"
-  end
 end
