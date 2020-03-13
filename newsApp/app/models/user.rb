@@ -13,4 +13,9 @@ class User < ApplicationRecord
 
   has_one :profile, :dependent => :destroy
 
+  after_create :send_welcome_email
+  def send_welcome_email
+    UserMailer.welcome_email_for_user(self.email).deliver_now
+  end
+
 end

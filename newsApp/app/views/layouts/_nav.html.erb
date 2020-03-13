@@ -83,6 +83,12 @@
             <%end %>
           </a>
 
+          <a class="dropdown-item">
+            <% if current_editor %>
+              <%= link_to "Cancel my account", registration_path(current_editor), data: { confirm: "Are you sure?" }, method: :delete %>
+            <% end %>
+          </a>
+
         </div>
       </li>
 

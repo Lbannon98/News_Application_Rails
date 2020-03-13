@@ -13,4 +13,9 @@ class Editor < ApplicationRecord
 
   has_many :articles, :dependent => :destroy
 
+  after_create :send_welcome_email
+  def send_welcome_email
+    UserMailer.welcome_email_for_editor(self.email).deliver_now
+  end
+
 end
