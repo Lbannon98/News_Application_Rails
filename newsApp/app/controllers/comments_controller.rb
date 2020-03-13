@@ -43,8 +43,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
 
-      CommentMailer.new_comment_email(@editor, @comment.user, @content).deliver_now
-      #, @comment.content
+      #CommentMailer.new_comment_email(@editor, @comment.user, @content).deliver_now
 
       # Save the review successfully
       redirect_to article_comments_url(@article, @comment)
