@@ -56,7 +56,7 @@ gem 'news-api'
 #Open-Weather
 gem 'open-weather'
 
-gem 'profanityfilter', '~> 0.0.0'
+gem 'profanityfilter', '~> 1.0'
 
 # Observer Pattern
 gem 'rails-observers'
