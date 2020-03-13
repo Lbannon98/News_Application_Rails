@@ -1,4 +1,3 @@
-require 'Subject.rb'
 require 'observer'
 
 class CommentsController < ApplicationController
@@ -39,8 +38,14 @@ class CommentsController < ApplicationController
     @comment = @article.comments.build(comment_params)
 
     @comment.user = current_user
+    @editor = @article.editor.email
+    @content = @comment.content
 
     if @comment.save
+
+      CommentMailer.new_comment_email(@editor, @comment.user, @content).deliver_now
+      #, @comment.content
+
       # Save the review successfully
       redirect_to article_comments_url(@article, @comment)
     else
@@ -62,8 +67,8 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = Comment.find(params[:id])
 
-    changed
-    notify_observers(self)
+    #changed
+    #notify_observers(self)
 
     if @comment.update(comment_params)
       # Save the review successfully
