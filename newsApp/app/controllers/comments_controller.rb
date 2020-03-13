@@ -58,9 +58,6 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = Comment.find(params[:id])
 
-    #changed
-    #notify_observers(self)
-
     if @comment.update(comment_params)
       # Save the review successfully
       redirect_to article_comment_url(@article, @comment)
