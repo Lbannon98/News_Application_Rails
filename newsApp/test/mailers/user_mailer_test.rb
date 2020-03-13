@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'authenticated users get sent email' do
+    sign_in users(:one)
+
+    assert true
+  end
+
 end
