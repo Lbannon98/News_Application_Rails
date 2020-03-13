@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
     @article = Article.find(params[:article_id])
     @comments = @article.comments
+
     @user = current_user
 
   end
@@ -32,6 +33,8 @@ class CommentsController < ApplicationController
     @comment = @article.comments.build(comment_params)
 
     @comment.user = current_user
+    @editor = @article.editor.email
+    @content = @comment.content
 
     if @comment.save
       # Save the review successfully

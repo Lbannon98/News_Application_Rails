@@ -24,14 +24,15 @@
 
       <% end %>
 
-      <% if current_user || current_editor%>
-
-        <button type="button" class="btn btn-outline-primary" style="alignment: right">
-          <%= link_to 'Back', article_comments_path(@article) %>
-        </button>
-
-      <%end %>
-
     </div>
   </div>
+
 <% end %>
+
+<% if current_user || current_editor%>
+
+  <button type="button" class="btn btn-outline-primary" style="alignment: right">
+    <%= link_to 'Back', article_path(@article) %>
+  </button>
+
+<%end %>

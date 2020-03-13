@@ -15,16 +15,12 @@
   <div class="card">
     <div class="card-block">
       <h4 class="card-title"> <%= ProfanityFilter.check(article.headline) %> </h4>
-      <%#= article.headline%>
-      <%#= @cleansedHeadline %>
       <p class="card-text"> <%= ProfanityFilter.check(article.body) %> </p>
-      <%#= @cleansedBody %>
-      <%#= article.body%>
       <h5 class="card-text">Published By: <%= article.editor.email %></h5>
 
       <br>
 
-      <% if current_user || current_editor%>
+      <% if current_user || current_editor %>
           <button type="button" class="btn btn-outline-primary">
             <%= link_to 'Show', article %>
           </button>

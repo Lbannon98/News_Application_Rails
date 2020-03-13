@@ -1,5 +1,8 @@
-class Profile < ApplicationRecord
+require "singleton"
 
-  belongs_to :user
+class Profile < ApplicationRecord
+  include Singleton
+
+  belongs_to :user, :dependent => :destroy
 
 end

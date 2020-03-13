@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+
   belongs_to :editor
   has_many :comments
 
@@ -10,4 +11,5 @@ class Article < ApplicationRecord
       all
     end
   end
+
 end

@@ -56,9 +56,10 @@ gem 'news-api'
 #Open-Weather
 gem 'open-weather'
 
-gem 'profanityfilter', '~> 0.0.0'
+gem 'profanityfilter', '~> 1.0'
 
-#gem 'web-console', '>= 3.3.0'
+# Observer Pattern
+gem 'rails-observers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

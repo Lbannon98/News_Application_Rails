@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
 
   s.name = 'profanityfilter'
-  s.version = '0.0.0'
+  s.version = '1.0'
   s.date = '2020-02-26'
   s.summary = "Replace profanity with hashed version of word"
   s.description = "Profanity filter"

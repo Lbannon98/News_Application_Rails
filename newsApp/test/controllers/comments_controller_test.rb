@@ -1,23 +1,28 @@
 require 'test_helper'
+require 'ProfanityFilter'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @comment = comments(:one)
+  end
+
   test "should get index" do
-    get comments_index_url
+    get article_comments_url
     assert_response :success
   end
 
   test "should get show" do
-    get comments_show_url
+    get article_comment_url(@comment)
     assert_response :success
   end
 
   test "should get new" do
-    get comments_new_url
+    get new_article_comment_url
     assert_response :success
   end
 
   test "should get edit" do
-    get comments_edit_url
+    get edit_article_comment_url(@comment)
     assert_response :success
   end
 
