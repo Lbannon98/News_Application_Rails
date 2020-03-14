@@ -5,8 +5,10 @@ class Article < ApplicationRecord
 
   def self.search(search)
     if search
-      where(["headline LIKE ?", "%#{search}%"])
-      where(["body LIKE ?", "%#{search}%"])
+
+      where(["headline LIKE ?", "% #{sealsrch}%"])
+      where(["body LIKE ?", "% #{search}%"])
+
     else
       all
     end
