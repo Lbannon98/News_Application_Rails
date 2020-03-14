@@ -56,7 +56,8 @@ gem 'news-api'
 #Open-Weather
 gem 'open-weather'
 
-gem 'profanityfilter', '~> 1.0'
+# Custom Gem
+gem 'profanityfilter', :git => 'https://github.com/Lbannon98/Profanity_Filter_Gem.git'
 
 # Observer Pattern
 gem 'rails-observers'
