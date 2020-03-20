@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  extend Devise::Models
 
   validates :email, presence: true, length: {minimum: 10}
   validates :password, presence: true, length: {minimum: 6}
