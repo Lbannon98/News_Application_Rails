@@ -1,3 +1,5 @@
+<% require 'ProfanityFilter' %>
+
 <h1>Comments from Article: <%= ProfanityFilter.check(@article.headline) %></h1>
 
 <% for comment in @comments %>
