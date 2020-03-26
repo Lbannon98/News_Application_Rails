@@ -63,6 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "newsApp_#{Rails.env}"
 
+  # Defining mailer configuration
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :sendmail
@@ -85,7 +86,7 @@ Rails.application.configure do
       authentication:       :plain,
       enable_starttls_auto: true  }
 
-  config.action_mailer.default_url_options = { :host => 'https://calm-falls-02380.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://sheltered-island-77764.herokuapp.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
